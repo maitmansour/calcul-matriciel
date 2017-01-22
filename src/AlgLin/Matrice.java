@@ -146,6 +146,24 @@ public class Matrice {
 		return resultat;
 	}
 	
+	
+	/*
+	 *   public static Matrice multiplicationMatrices(Matrice m1, Matrice m2){
+    Matrice resultat = new Matrice(m1.coefficient.length,m1.coefficient[0].length );
+    resultat.copy(m1);
+    for (int i = 0; i < m1.coefficient.length; i++) {
+      for (int j = 0; j < m1.coefficient[0].length; j++) {
+       for (int k = 0; k < m1.coefficient[0].length; k++) {
+
+resultat.coefficient[i][j]+=m1.coefficient[i][k]*m2.coefficient[k][j];
+  }
+    }
+       } 
+   return resultat;
+  }
+
+	 */
+	
 	public static Matrice multiplicationMatrices(Matrice m1, Matrice m2){
 		Matrice resultat = new Matrice(m1.coefficient.length,m1.coefficient[0].length );
 		double somme =0;
