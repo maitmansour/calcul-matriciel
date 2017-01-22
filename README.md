@@ -13,7 +13,7 @@ mohamed.ait-mansour@etu.univ-lehavre.fr
 ## L'application
 Cette Application est un ensembles d'outils de gestion d'une matrice il permet de faire les opérations suivante :
   - Insertion
-  - suppression
+  - Produit Scalaire
   - addition
   - multiplication
   - ...
@@ -21,9 +21,18 @@ Cette Application est un ensembles d'outils de gestion d'une matrice il permet d
 Ci-joint le code `JAVA` du main permettant de  l'application :
 
 ```java
-		Matrice m3 = additionMatrices(m1, m2);
-		Matrice m4 = multiplicationMatrices(m1, m2);
-		System.out.println(m4.toString()); 
+===========================================
+Menu des testes  possibles sur les matrices
+===========================================
+0.Creation des matrices 
+1.Affihage des matrices
+2.Afficher Nombre d'element d'une matrice
+3.Produit Scalaire avec une matrice (ex. 5.2)
+4.Recuperer l'element situe a M1[2][2]
+5.Remplacer l'element situe a M1[2][2] par 5.3
+6.Addition deux matrices
+7.Multiplication deux matrices
+8.exit
 ```
 ## Testes
 Pour tester l'application, notament l'insertion par fichier, merci d'utiliser un lien vers un fichier comme ceci:
