@@ -2,7 +2,7 @@ package AlgLin;
 import AlgLin.*;
 import java.util.Scanner;
 
-public class Testes {
+public class TestesMatrice {
 
 	public static void main(String[] args) {
 		select();
@@ -16,7 +16,7 @@ public class Testes {
 		System.out.println("1.Affihage des matrices");
 		System.out.println("2.Afficher Nombre d'element d'une matrice");
 		System.out.println("3.Produit Scalaire avec une matrice (ex. 5.2)");
-		System.out.println("4.R�cup�rer l'element situe a M1[2][2]");
+		System.out.println("4.Recuperer l'element situe a M1[2][2]");
 		System.out.println("5.Remplacer l'element situe a M1[2][2] par 5.3");
 		System.out.println("6.Addition deux matrices");
 		System.out.println("7.Multiplication deux matrices");
