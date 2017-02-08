@@ -35,6 +35,7 @@ public class Matrice {
 			String sCurrentLine;
 			int ligneFile=0;
 			int ligneMatrice=0;
+			
 			int colonneMatrice=0;
 			int nbLignes = 0,nbColonnes = 0;
 			String dataMatrice="";
