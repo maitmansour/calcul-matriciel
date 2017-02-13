@@ -83,9 +83,9 @@ public class Matrice {
 	void copy(Matrice tmp){
 		if(this!=tmp){
 			coefficient = null;
-			coefficient = new double [tmp.coefficient.length][tmp.coefficient[0].length];
-			for (int i = 0; i < tmp.coefficient.length; i++) {
-				for (int j = 0; j < tmp.coefficient[0].length; j++) {
+			coefficient = new double [tmp.getNbLignes()][tmp.getNbColonnes()];
+			for (int i = 0; i < tmp.getNbLignes(); i++) {
+				for (int j = 0; j < tmp.getNbColonnes(); j++) {
 					coefficient[i][j]=tmp.coefficient[i][j];
 				}
 			}
@@ -95,8 +95,8 @@ public class Matrice {
 	
 	
 	void NbElements(){
-		System.out.println("Nombre de lignes :"+coefficient.length);
-		System.out.println("Nombre de colonnes :"+coefficient[0].length);
+		System.out.println("Nombre de lignes :"+getNbLignes());
+		System.out.println("Nombre de colonnes :"+getNbColonnes());
 		
 	}
 	
@@ -114,8 +114,8 @@ public class Matrice {
 
 		String result="[";
 
-		for (int i = 0; i < coefficient.length; i++) {
-			for (int j = 0; j < coefficient[0].length; j++) {
+		for (int i = 0; i < getNbLignes(); i++) {
+			for (int j = 0; j < getNbColonnes(); j++) {
 				
 				result+=format.format(coefficient[i][j])+",";
 
@@ -129,8 +129,8 @@ public class Matrice {
 	}
 	
 	void produitScalaire(double scalaire){
-		for (int i = 0; i < coefficient.length; i++) {
-			for (int j = 0; j < coefficient[0].length; j++) {
+		for (int i = 0; i < getNbLignes(); i++) {
+			for (int j = 0; j < getNbColonnes(); j++) {
 				
 				coefficient[i][j]*=scalaire;
 
@@ -139,10 +139,10 @@ public class Matrice {
 	}
 	
 	public static Matrice additionMatrices(Matrice m1, Matrice m2){
-		Matrice resultat = new Matrice(m1.coefficient.length,m1.coefficient[0].length );
+		Matrice resultat = new Matrice(m1.getNbLignes(),m1.getNbColonnes() );
 		resultat.copy(m1);
-		for (int i = 0; i < m1.coefficient.length; i++) {
-			for (int j = 0; j < m1.coefficient[0].length; j++) {
+		for (int i = 0; i < m1.getNbLignes(); i++) {
+			for (int j = 0; j < m1.getNbColonnes(); j++) {
 				
 				resultat.coefficient[i][j]+=m2.coefficient[i][j];
 
@@ -151,10 +151,21 @@ public class Matrice {
 		return resultat;
 	}
 	
+	
+
+	public int getNbLignes() {
+		return getCoefficient().length;
+	}
+
+	public int getNbColonnes() {
+		return getCoefficient()[0].length;
+	}
+
+	
 	public static Matrice multiplicationMatrices(Matrice m1, Matrice m2) throws Exception{
-		if (m1.getCoefficient().length==m2.getCoefficient().length){
-			if (m1.getCoefficient()[0].length==m2.getCoefficient()[0].length){
-				Matrice resultat = new Matrice(m1.coefficient.length,m1.coefficient[0].length );
+		if (m1.getNbLignes()==m2.getNbLignes()){
+			if (m1.getNbColonnes()==m2.getNbColonnes()){
+				Matrice resultat = new Matrice(m1.getNbLignes(),m1.getNbColonnes() );
 			    // Initialisation de tableau
 					for (int i = 0; i < 2; i++) {
 						for (int j = 0; j < 2; j++) {
@@ -163,9 +174,9 @@ public class Matrice {
 					}
 					
 			    //calcul 
-					for (int i = 0; i < m1.coefficient.length; i++) {
-						for (int j = 0; j < m1.coefficient[0].length; j++) {
-							for (int k = 0; k < m1.coefficient[0].length; k++) {
+					for (int i = 0; i < m1.getNbLignes(); i++) {
+						for (int j = 0; j < m1.getNbColonnes(); j++) {
+							for (int k = 0; k < m1.getNbColonnes(); k++) {
 
 								resultat.coefficient[i][j]+=m1.coefficient[i][k]*m2.coefficient[k][j];
 							}
