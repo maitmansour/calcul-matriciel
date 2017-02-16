@@ -8,8 +8,11 @@ public abstract class SysLin {
 	protected Vecteur secondMembre;
 	
 	
-	public SysLin(Matrice matrice, Matrice seconde) throws IrregularSysLinException {
-		if ((matrice.getNbLignes()==seconde.getNbLignes())&&(matrice.getNbColonnes()==seconde.getNbColonnes())&&(matrice.getNbColonnes()==matrice.getNbColonnes())) {
+	public SysLin(Matrice matrice, Vecteur seconde) throws IrregularSysLinException {
+		if ((matrice.getNbLignes()==seconde.getNbLignes())&&(matrice.getNbColonnes()==seconde.getNbLignes())) {
+			ordre = matrice.getNbLignes();
+			matriceSystem = new Matrice(ordre,ordre);
+			secondMembre = new Vecteur(ordre);
 			matriceSystem.copy(matrice);
 			secondMembre.copy(seconde);
 			

@@ -64,7 +64,7 @@ public class Vecteur extends Matrice{
 		} 
 
 		
-
+		
 	}
 
 
