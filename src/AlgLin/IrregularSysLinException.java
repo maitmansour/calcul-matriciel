@@ -1,7 +1,7 @@
 package AlgLin;
 
-public class IrregularSysLinException extends Exception{
-	private String message; 
+public class IrregularSysLinException extends Exception {
+	private String message;
 
 	public String getMessage() {
 		return message;
@@ -11,11 +11,10 @@ public class IrregularSysLinException extends Exception{
 		this.message = message;
 	}
 
-	public IrregularSysLinException() {
-		super("Exception : Le Systeme est Irregulier");
-		setMessage("Exception : Le Systeme est Irregulier");
+	public IrregularSysLinException(String string) {
+		setMessage(message);
 	}
-	
+
 	@Override
 	public String toString() {
 		return getMessage();
