@@ -6,28 +6,22 @@ public abstract class SysLin {
 	private int ordre;
 	protected Matrice matriceSystem;
 	protected Vecteur secondMembre;
-	
-	
-	public SysLin(Matrice matrice, Matrice seconde) throws IrregularSysLinException {
-		if ((matrice.getNbLignes()==seconde.getNbLignes())&&(matrice.getNbColonnes()==seconde.getNbColonnes())&&(matrice.getNbColonnes()==matrice.getNbColonnes())) {
+
+	public SysLin(Matrice matrice, Vecteur seconde) throws IrregularSysLinException {
+		if ((matrice.getNbLignes() == seconde.getNbLignes()) && (matrice.getNbColonnes() == matrice.getNbColonnes())) {
+			matriceSystem = new Matrice(matrice.getNbLignes(), matrice.getNbColonnes());
 			matriceSystem.copy(matrice);
+			secondMembre = new Vecteur(seconde.getNbLignes());
 			secondMembre.copy(seconde);
-			
+			setOrdre(seconde.getNbLignes());
+			// System.out.println(matriceSystem);
 		} else {
-			throw new IrregularSysLinException();
+			throw new IrregularSysLinException("IMCOMPATIBLES (MATRICE ET VECTEUR)");
 		}
 	}
-	
-	abstract public Vecteur Resolution();
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	abstract public Vecteur Resolution() throws IrregularSysLinException;
+
 	public int getOrdre() {
 		return ordre;
 	}
@@ -48,24 +42,16 @@ public abstract class SysLin {
 		return secondMembre;
 	}
 
-
 	public void setSecondMembre(Vecteur secondMembre) {
 		this.secondMembre = secondMembre;
 	}
 
-
-	
-	
-	
-	
-	
 	public static void main(String[] args) {
-		
-		//Construction de deux matrices
-		Matrice m1 = new Matrice("//home//etudiant//am163898//Bureau//filename2.txt");
-		Vecteur v1 = new Vecteur("//home//etudiant//am163898//Bureau//filename22.txt");
-		
-		
+
+		// Construction de deux matrices
+		Matrice m1 = new Matrice("matrice3.txt");
+		Vecteur v1 = new Vecteur("vecteur3.txt");
+
 	}
 
 }
