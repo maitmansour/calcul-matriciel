@@ -2,8 +2,8 @@ package AlgLin;
 
 public class SysTriangInfUnite extends SysLin {
 
-	public SysTriangInfUnite(Matrice system, Vecteur seconde) throws IrregularSysLinException {
-		super(system, seconde);
+	public SysTriangInfUnite(Matrice matrice, Vecteur seconde) throws IrregularSysLinException {
+		super(matrice, seconde);
 
 	}
 	// la methode de resolution qui retourne une exception en cas d'une matrice
@@ -20,9 +20,7 @@ public class SysTriangInfUnite extends SysLin {
 			for (int nbC = 0; nbC <= nbL; nbC++)
 
 				somme -= matriceSystem.getElement(nbL, nbC) * solution.getElement(nbC);
-
 			if (matriceSystem.getElement(nbL, nbL) == 0)
-
 				throw new IrregularSysLinException("diagonal null");
 
 			solution.replaceElement(nbL, somme);
@@ -32,7 +30,6 @@ public class SysTriangInfUnite extends SysLin {
 		return solution;
 
 	}
-
 
 	public static void main(String[] arg) {
 		double Matrice[][] = { { 1.0, 0.0 }, { 2.0, 1.0 } };
@@ -51,7 +48,6 @@ public class SysTriangInfUnite extends SysLin {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 
 		System.out.println("la solution trouver est :" + result);
 
